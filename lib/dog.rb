@@ -68,8 +68,7 @@ end
     dog_name = dog_hash[:name]
     dog_breed = dog_hash[:breed]
 
-
-    if self.find_by_name(dog_name)
+    if found_dog = self.find_by_name(dog_name)
        if self.find_by_name(dog_name).breed == dog_breed
          self.find_by_name(dog_name)
        else
