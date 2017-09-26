@@ -68,7 +68,7 @@ end
     dog_name = dog_hash[:name]
     dog_breed = dog_hash[:breed]
 
-    dog = DB[:conn].execute("SELECT * FROM songs WHERE name = ? AND album = ?", dog_name, dog_breed)
+    dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND album = ?", dog_name, dog_breed)
 
     if !dog.empty?
       dog_data = dog[0]
