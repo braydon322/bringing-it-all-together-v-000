@@ -68,7 +68,9 @@ end
     dog_name = dog_object[:name]
     if self.find_by_name(dog_name)
     else
-      self.create(dog_object)
+      new_dog = self.create(dog_object)
+      new_dog.save
+      
     end
   end
 
