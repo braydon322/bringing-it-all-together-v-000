@@ -72,6 +72,7 @@ end
       new_dog = self.create(dog_object)
       new_dog.save
       new_dog
+      binding.pry
     end
   end
 
