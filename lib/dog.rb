@@ -69,6 +69,7 @@ end
     if self.find_by_name(dog_name)
     else
       new_dog = self.create(dog_object)
+      binding.pry
       new_dog.save
 
     end
