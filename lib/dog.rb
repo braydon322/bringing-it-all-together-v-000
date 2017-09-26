@@ -72,7 +72,7 @@ end
 
     if !dog.empty?
       dog_data = dog[0]
-      dog = Song.new(dog_data[0], dog_data[1], dog_data[2])
+      dog = Dog.new(dog_data[0], dog_data[1], dog_data[2])
     else
       dog = self.create(name: dog_name, breed: dog_breed)
     end
