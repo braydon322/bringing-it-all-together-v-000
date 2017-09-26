@@ -65,7 +65,9 @@ end
   end
 
   def self.find_or_create_by(dog_object)
-    binding.pry
+    dog_name = dog_object[:name]
+    if find_by_name(dog_name)
+      binding.pry
   end
 
   def self.new_from_db(row)
