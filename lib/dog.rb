@@ -73,7 +73,6 @@ end
     if !dog.empty?
       dog_data = dog[0]
       dog = Dog.new(dog_hash)
-      dog
     else
       dog = self.create(name: dog_name, breed: dog_breed)
       dog
