@@ -64,17 +64,30 @@ end
     end
   end
 
-  def self.find_or_create_by(dog_object)
-    dog_name = dog_object[:name]
-    if self.find_by_name(dog_name)
-      self.find_by_name(dog_name)
+  def self.find_or_create_by(dog_hash)
+    dog_name = dog_hash[:name]
+    dog_breed = dog_hash[:breed]
+    
+    song = DB[:conn].execute("SELECT * FROM songs WHERE name = ? AND album = ?", name, album)
+    if !song.empty?
+      song_data = song[0]
+      song = Song.new(song_data[0], song_data[1], song_data[2])
     else
-      new_dog = self.create(dog_object)
-      new_dog.save
-      new_dog
-      binding.pry
+      song = self.create(name: name, album: album)
     end
-  end
+    song
+  end 
+
+  # def self.find_or_create_by(dog_object)
+  #   dog_name = dog_object[:name]
+  #   if self.find_by_name(dog_name)
+  #     self.find_by_name(dog_name)
+  #   else
+  #     new_dog = self.create(dog_object)
+  #     new_dog.save
+  #     new_dog
+  #   end
+  # end
 
   def self.new_from_db(row)
     id = row[0]
