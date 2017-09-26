@@ -66,7 +66,7 @@ end
 
   def self.find_or_create_by(dog_object)
     dog_name = dog_object[:name]
-    if find_by_name(dog_name)
+    if self.find_by_name(dog_name)
       binding.pry
     end
   end
@@ -80,7 +80,7 @@ end
     new_dog
   end
 
-  def find_by_name(name)
+  def self.find_by_name(name)
     self.all.each do |dog|
      if dog.name == name
       return dog
