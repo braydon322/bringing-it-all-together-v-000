@@ -70,7 +70,7 @@ end
     else
       new_dog = self.create(dog_object)
       new_dog.save
-      
+
     end
   end
 
