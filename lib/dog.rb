@@ -66,13 +66,24 @@ end
 
   def self.find_or_create_by(dog_hash)
     dog_name = dog_hash[:name]
+    dog_breed = dog_hash[:breed]
+    
+    
     if self.find_by_name(dog_name)
-       self.find_by_name(dog_name)
+       if self.find_by_name(dog_name).breed == dog_breed
+         self.find_by_name(dog_name)
+       else
+         new_dog = self.create(dog_object)
+         new_dog.save
+         new_dog
+       end
+           
     else
       new_dog = self.create(dog_object)
       new_dog.save
       new_dog
     end
+    
   end
 
   def self.new_from_db(row)
